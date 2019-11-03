@@ -24,7 +24,7 @@ int main(){
 
   printf("\n%s\n", "Testing find song");
   struct song_node * found;
-  found = find_song1(list_head,"alive", "pearl jam");
+  found = find_song1(list_head, "pearl jam","alive");
   if (found != NULL) {
     printf("%s\n", "Song with desired artist found! ");
     print_song(found);
