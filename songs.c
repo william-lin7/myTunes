@@ -5,8 +5,7 @@
 
 //insert nodes at the front
 struct song_node * insert_front(struct song_node * s, char *a, char *n){
-  struct song_node* newSong;
-  newSong = malloc(sizeof(struct song_node));
+  struct song_node* newSong = malloc(sizeof(struct song_node));
   strcpy(newSong->name,n);
   strcpy(newSong->artist,a);
   newSong->next = s;
@@ -90,16 +89,15 @@ struct song_node * find_artist(struct song_node *s, char *a) {
 
 struct song_node * free_songs(struct song_node *s){
   struct song_node * previous_node;
-  struct song_node * current_node = s;
   // print_list(s);
 
-  while (current_node!=NULL) {
-    previous_node = current_node;
-    current_node = previous_node->next;
+  while (s!=NULL) {
+    previous_node = s;
+    s = previous_node->next;
     printf("freeing node: %s | %s\n", previous_node->artist, previous_node->name);
     free(previous_node);
     previous_node = NULL;
   }
-  current_node = NULL;
+  s = NULL;
   return s;
 }
