@@ -12,12 +12,13 @@ int main(){
   print_songs(list_head);
 
   printf("\n%s\n", "Adding artists and songs");
-  list_head = insert_front(list_head,"ac/dc","thunderstruck");
-  list_head = insert_front(list_head,"pearl jam","alive");
-  list_head = insert_front(list_head,"pearl jam","even flow");
-  list_head = insert_front(list_head,"pearl jam","yellow ledbetter");
-  list_head = insert_front(list_head,"pink floyd","time");
-  list_head = insert_front(list_head,"radiohead","paranoid android");
+  list_head = insert_front(list_head, "thunderstruck", "ac/dc");
+  list_head = insert_front(list_head, "alive", "pearl jam");
+  insert_inorder(list_head, "even flow", "pearl jam");
+  //list_head = insert_front(list_head,"pearl jam","even flow");
+  // list_head = insert_front(list_head,"pearl jam","yellow ledbetter");
+  // list_head = insert_front(list_head,"pink floyd","time");
+  // list_head = insert_front(list_head,"radiohead","paranoid android");
   print_songs(list_head);
 
   return 0;

@@ -4,7 +4,7 @@
 #include "listMethods.h"
 
 //insert nodes at the front
-struct song_node * insert_front(struct song_node *s, char *n, char *a){
+struct song_node * insert_front(struct song_node *s, char *a, char *n){
   struct song_node* newSong = (struct song_node *)malloc(sizeof(s));
   strcpy(newSong->name,n);
   strcpy(newSong->artist,a);
@@ -13,15 +13,14 @@ struct song_node * insert_front(struct song_node *s, char *n, char *a){
 }
 
 //insert nodes in order - alphabetical by Artist then by Song
-void insert_inorder(struct song_node *s, char *n, char *a){
-  /**
+void insert_inorder(struct song_node *s, char *a, char *n){
   struct song_node* newSong = (struct song_node *)malloc(sizeof(n));
-  newSong->name = n;
-  newSong->artist = a;
-  while ((s->next) != NULL && (s->artist).compareTo(a) < 0){
+  strcpy(newSong->name,n);
+  strcpy(newSong->artist,a);
+  while ((s->next) != NULL && strcmp(s->artist, a) < 0){
     s = s->next;
   }
-  while ((s->next) != NULL && (s->name).compareTo(n) < 0 && (s->artist).compareTo(a) == 0){
+  while ((s->next) != NULL && strcmp(s->name, n) < 0 && strcmp(s->artist, a) == 0){
     s = s->next;
   }
   if (s->next == NULL){
@@ -36,14 +35,13 @@ void insert_inorder(struct song_node *s, char *n, char *a){
     free(temp);
     temp = NULL;
   }
-  **/
 }
 //sorry i commented this out first bc it was giving errors but i wasn't sure how to fix them
 
 //print the entire list
 void print_songs(struct song_node *n) {
   while (n != NULL) {
-    printf(" %s : %s |", n->artist, n->name);
+    printf(" %s : %s \n", n->artist, n->name);
     n = n->next;
   }
   printf("\n");
@@ -51,7 +49,7 @@ void print_songs(struct song_node *n) {
 
 //find and return a pointer to a node based on artist and song name
 
-struct song_node * find_song1(struct song_node *s, char *n, char *a) {
+struct song_node * find_song1(struct song_node *s, char *a, char *n) {
   while (s!=NULL) {
     if (s->name == n && s->artist == a) {
       return s;
