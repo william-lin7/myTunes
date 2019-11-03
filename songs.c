@@ -27,7 +27,6 @@ void print_song(struct song_node *n) {
   n = n->next;
 }
 
-/**
 //insert nodes in order - alphabetical by Artist then by Song
 void insert_inorder(struct song_node *s, char *a, char *n){
   struct song_node* newSong = (struct song_node *)malloc(sizeof(n));
@@ -52,8 +51,6 @@ void insert_inorder(struct song_node *s, char *a, char *n){
     temp = NULL;
   }
 }
-**/
-//sorry i commented this out first bc it was giving errors but i wasn't sure how to fix them
 
 //find and return a pointer to a node based on artist and song name
 
@@ -91,23 +88,24 @@ void removeNode(struct song_node *s, char *a, char *n){
   struct song_node *previous = malloc(sizeof(struct song_node));
   previous = s;
   if (s == NULL) return;
-  if ((s->artist == a) && (s->name == n)){
+  if ((strcmp(s->artist, a) == 0) && (strcmp(s->name, n) == 0)){
     free(previous);
     free(s);
   }
   else{
-    s = s->next;
-    if (s == NULL){
+    if (s->next == NULL){
       free(previous);
     }
-    while ((s != NULL) && !(s->artist == a) && !(s->name == n)){
-      previous = s;
+    else{
       s = s->next;
+      while ((s != NULL) && !(strcmp(s->artist, a) == 0) && !(strcmp(s->name, n) == 0)){
+        previous = s;
+        s = s->next;
+      }
+      previous->next = s->next;
+      s->next = NULL;
+      free(previous);
     }
-    previous->next = s->next;
-    s->next = NULL;
-    free(previous);
-    free(s);
   }
 }
 

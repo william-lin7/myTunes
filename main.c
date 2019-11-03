@@ -22,6 +22,11 @@ int main(){
   list_head = insert_front(list_head,"ac/dc","thunderstruck");
   print_songs(list_head);
 
+  printf("\n%s\n", "-------------------------Testing remove node--------------------------");
+  removeNode(list_head, "pearl jam", "even flow");
+  removeNode(list_head, "pearl jam", "alive");
+  print_songs(list_head);
+
   printf("\n%s\n", "-------------------------Testing print node-------------------------");
   print_song(list_head);
 
