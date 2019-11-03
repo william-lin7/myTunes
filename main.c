@@ -41,6 +41,9 @@ int main(){
   printf("%s\n", "looking for [pearl jam]");
   find_artist(list_head, "pearl jam");
 
+  printf("\n%s\n", "-------------------------Testing free songs-------------------------");
+  list_head = free_songs(list_head);
+  print_songs(list_head);
 
   return 0;
 }
