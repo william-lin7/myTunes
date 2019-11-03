@@ -5,7 +5,7 @@ struct song_node{
 };
 
 struct song_node * insert_front(struct song_node *s, char *a, char *n);
-void insert_inorder(struct song_node *s, char *a, char *n);
+struct song_node * insert_inorder(struct song_node *s, char *a, char *n);
 void print_songs(struct song_node *n);
 void print_song(struct song_node *n);
 void removeNode(struct song_node *s, char *a, char *n);
