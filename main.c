@@ -38,6 +38,7 @@ int main(){
 
   printf("\n%s\n", "-------------------------Testing free songs-------------------------");
   list_head = free_songs(list_head);
+  printf("list after freed list: ");
   print_songs(list_head);
 
   return 0;
