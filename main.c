@@ -12,13 +12,23 @@ int main(){
   print_songs(list_head);
 
   printf("\n%s\n", "Adding artists and songs");
-  list_head = insert_front(list_head,"ac/dc","thunderstruck");
-  list_head = insert_front(list_head,"pearl jam","alive");
-  list_head = insert_front(list_head,"pearl jam","even flow");
-  list_head = insert_front(list_head,"pearl jam","yellow ledbetter");
+  list_head = insert_front(list_head,"radiohead","street spirit");
   list_head = insert_front(list_head,"pink floyd","time");
   list_head = insert_front(list_head,"radiohead","paranoid android");
+  list_head = insert_front(list_head,"pearl jam","yellow ledbetter");
+  list_head = insert_front(list_head,"pearl jam","even flow");
+  list_head = insert_front(list_head,"pearl jam","alive");
+  list_head = insert_front(list_head,"ac/dc","thunderstruck");
+
   print_songs(list_head);
+
+  printf("\n%s\n", "Testing find song");
+  struct song_node * found;
+  found = find_song1(list_head,"alive", "pearl jam");
+  if (found != NULL) {
+    printf("%s\n", "Song with desired artist found! ");
+    print_song(found);
+  }
 
   return 0;
 }
