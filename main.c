@@ -6,12 +6,13 @@
 
 int main(){
   //creating a list
-  printf("%s\n", "Printing empty list:");
+  // printf("%s\n", "----------------------Printing empty list:-------------------");
   struct song_node * list_head;
   list_head = NULL;
-  print_songs(list_head);
+  // print_songs(list_head);
 
-  printf("\n%s\n", "Adding artists and songs");
+
+  printf("\n%s\n", "-------------------------Adding artists and songs-------------------------");
   list_head = insert_front(list_head,"radiohead","street spirit");
   list_head = insert_front(list_head,"pink floyd","time");
   list_head = insert_front(list_head,"radiohead","paranoid android");
@@ -19,16 +20,22 @@ int main(){
   list_head = insert_front(list_head,"pearl jam","even flow");
   list_head = insert_front(list_head,"pearl jam","alive");
   list_head = insert_front(list_head,"ac/dc","thunderstruck");
-
   print_songs(list_head);
 
-  printf("\n%s\n", "Testing find song");
+  printf("\n%s\n", "-------------------------Testing print node-------------------------");
+  print_song(list_head);
+
+  printf("\n%s\n", "-------------------------Testing find song-------------------------");
   struct song_node * found;
-  found = find_song1(list_head, "pearl jam","alive");
-  if (found != NULL) {
-    printf("%s\n", "Song with desired artist found! ");
-    print_song(found);
-  }
+  printf("%s\n", "looking for [pearl jam: alive]");
+  find_song(list_head, "pearl jam","alive");
+  printf("%s\n", "looking for [bts: make it right]");
+  find_song(list_head, "bts", "make it right");
+
+  printf("\n%s\n", "-------------------------Testing find artist-------------------------");
+  printf("%s\n", "looking for [pearl jam]");
+  find_artist(list_head, "pearl jam");
+
 
   return 0;
 }

@@ -58,30 +58,35 @@ void insert_inorder(struct song_node *s, char *a, char *n){
 
 //find and return a pointer to a node based on artist and song name
 
-struct song_node * find_song1(struct song_node *s, char *a, char *n) {
+struct song_node * find_song(struct song_node *s, char *a, char *n) {
   while (s!=NULL) {
-    if (strcmp(s->name,n) == 0 && strcmp(s->artist,a)) {
+    if (strcmp(s->artist,a) == 0 && strcmp(s->name,n) == 0) {
+      printf("%s ", "Song with desired artist found!");
+      print_song(s);
       return s;
-      printf("%s\n", "found");
     }
     s = s->next;
     // printf("%s\n", "still looking");
   }
-  printf("%s\n", "not found");
+  printf("%s\n", "Song not found");
   return NULL; //if it's not found - not sure if this is what he wants though
 }
 
 
 //find and return a pointer to the first song of an artist based on artist name
-struct song_node * find_song2(struct song_node *s, char *a) {
-  // while (s!=NULL) {
-  //   if ((s->artist).compareTo(a) == 0) {
-  //     return s;
-  //   }
-  //   s=s->next;
-  // }
+struct song_node * find_artist(struct song_node *s, char *a) {
+  while (s!=NULL) {
+    if (strcmp(s->artist,a) == 0) {
+      printf("%s ", "Desired artist found!");
+      print_songs(s);
+      return s;
+    }
+    s=s->next;
+  }
+  printf("%s\n", "Song not found");
   return NULL;
 }
+
 
 struct song_node * free_songs(struct song_node *s){
   struct song_node * previous_node;
