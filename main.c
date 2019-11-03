@@ -15,8 +15,9 @@ int main(){
   list_head = insert_front(list_head, "thunderstruck", "ac/dc");
   list_head = insert_front(list_head, "alive", "pearl jam");
   list_head = insert_front(list_head, "even flow", "pearl jam");
-  list_head = insert_front(list_head, "yellow ledbetter", "pearl jam");
-  //list_head = insert_front(list_head, "time", "pink floyd");
+  //list_head = insert_front(list_head, "yellow ledbetter", "pearl jam");
+  list_head = insert_front(list_head, "time", "pink floyd");
+  removeNode(list_head, "even flow", "pearl jam");
   // list_head = insert_front(list_head,"radiohead","paranoid android");
   print_songs(list_head);
 

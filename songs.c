@@ -71,6 +71,31 @@ struct song_node * find_song2(struct song_node *s, char *a) {
   return NULL;
 }
 
+// removes a specific song
+void removeNode(struct song_node *s, char *a, char *n){
+  struct song_node *previous = (struct song_node *)malloc(sizeof(s));
+  previous = s;
+  if (s == NULL) return;
+  if ((s->artist == a) && (s->name == n)){
+    free(previous);
+    free(s);
+  }
+  else{
+    s = s->next;
+    if (s == NULL){
+      free(previous);
+    }
+    while ((s != NULL) && !(s->artist == a) && !(s->name == n)){
+      previous = s;
+      s = s->next;
+    }
+    previous->next = s->next;
+    s->next = NULL;
+    free(previous);
+    free(s);
+  }
+}
+
 struct song_node * free_songs(struct song_node *s){
   struct song_node * previous_node;
   struct song_node * current_node = s;
