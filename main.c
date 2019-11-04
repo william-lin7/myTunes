@@ -2,8 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 
-
 #include "listMethods.h"
+#include "libraryMethods.h"
 
 int main(){
   //creating a list
@@ -62,9 +62,30 @@ int main(){
   find_artist(list_head, "pearl jam");
 
   printf("\n%s\n", "-------------------------Testing free songs-------------------------");
-  // list_head = free_songs(list_head);
-  // printf("list after freed list: ");
-  // print_songs(list_head);
+  list_head = free_songs(list_head);
+  printf("list after freed list: ");
+  print_songs(list_head);
+
+  printf("\n%s\n", "=========================MUSIC LIBRARY TESTS========================");
+
+  printf("\n%s\n", "------------------------Testing add song-------------------------");
+  // add_song(library, "radiohead", "street spirit");
+  // add_song(library, "radiohead","street spirit");
+  // add_song(library, "pink floyd","time");
+  // add_song(library, "radiohead","paranoid android");
+  // add_song(library, "pearl jam","yellow ledbetter");
+  // add_song(library, "pearl jam","even flow");
+  // add_song(library, "pearl jam","alive");
+  // add_song(library, "ac/dc","thunderstruck");
+  add_song( "radiohead", "street spirit");
+  add_song( "radiohead","street spirit");
+  add_song( "pink floyd","time");
+  add_song( "radiohead","paranoid android");
+  add_song( "pearl jam","yellow ledbetter");
+  add_song( "pearl jam","even flow");
+  add_song( "pearl jam","alive");
+  add_song( "ac/dc","thunderstruck");
+  print_library();
 
   return 0;
 }

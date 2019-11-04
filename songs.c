@@ -148,7 +148,7 @@ void removeNode(struct song_node *s, char *a, char *n){
 }
 
 struct song_node * free_songs(struct song_node *s){
-  struct song_node * previous_node;
+  struct song_node * previous_node = malloc(sizeof(struct song_node));
   // print_list(s);
 
   while (s!=NULL) {
