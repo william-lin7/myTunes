@@ -93,7 +93,7 @@ struct song_node * find_artist(struct song_node *s, char *a) {
     }
     s=s->next;
   }
-  printf("%s\n", "Song not found");
+  printf("%s\n", "Artist not found");
   return NULL;
 }
 
@@ -108,6 +108,8 @@ struct song_node *randomSong(struct song_node *s){
     countingNode = countingNode->next;
   }
   int randNum = rand() % size;
+  printf("%d\n", size);
+  printf("%d\n", randNum);
   while (randNum > 0){
     s = s->next;
     randNum--;
@@ -129,6 +131,7 @@ void removeNode(struct song_node *s, char *a, char *n){
   else{
     if (s->next == NULL){
       free(previous);
+      previous = NULL;
     }
     else{
       s = s->next;
@@ -139,6 +142,7 @@ void removeNode(struct song_node *s, char *a, char *n){
       previous->next = s->next;
       s->next = NULL;
       free(previous);
+      previous = NULL;
     }
   }
 }
