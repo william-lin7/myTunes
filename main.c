@@ -37,10 +37,10 @@ int main(){
   printf("\n%s\n", "-------------------------Testing random song--------------------------");
   struct song_node *random1 = malloc(sizeof(struct song_node));
   random1 = randomSong(list_head);
-  printf("%s   :   %s", random1->artist, random1->name);
+  printf("%s   :   %s\n", random1->artist, random1->name);
   struct song_node *random2 = malloc(sizeof(struct song_node));
   random2 = randomSong(list_head);
-  printf("%s   :   %s", random2->artist, random2->name);
+  printf("%s   :   %s\n", random2->artist, random2->name);
 
   printf("\n%s\n", "-------------------------Testing remove node--------------------------");
   removeNode(list_head, "pearl jam", "even flow");
