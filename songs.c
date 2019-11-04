@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include "listMethods.h"
+#include <time.h>
+
 
 //insert nodes at the front
 struct song_node * insert_front(struct song_node * s, char *a, char *n){
@@ -93,6 +95,26 @@ struct song_node * find_artist(struct song_node *s, char *a) {
   }
   printf("%s\n", "Song not found");
   return NULL;
+}
+
+// returns a random song
+struct song_node *randomSong(struct song_node *s){
+  srand(time(NULL));
+  struct song_node *countingNode = malloc(sizeof(struct song_node));
+  countingNode = s;
+  int size = 0;
+  while (countingNode != NULL){
+    size++;
+    countingNode = countingNode->next;
+  }
+  int randNum = rand() % size;
+  while (randNum > 0){
+    s = s->next;
+    randNum--;
+  }
+  free(countingNode);
+  countingNode = NULL;
+  return s;
 }
 
 // removes a specific song

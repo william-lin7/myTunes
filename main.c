@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
+
 #include "listMethods.h"
 
 int main(){
@@ -10,7 +11,6 @@ int main(){
   struct song_node * list_head;
   list_head = NULL;
   // print_songs(list_head);
-
 
   printf("\n%s\n", "-------------------------Adding artists and songs-------------------------");
   list_head = insert_front(list_head,"radiohead","street spirit");
@@ -28,11 +28,19 @@ int main(){
   ordered_list = insert_inorder(ordered_list,"radiohead","street spirit");
   ordered_list = insert_inorder(ordered_list,"pink floyd","time");
   //ordered_list = insert_inorder(ordered_list,"radiohead","paranoid android");
-  // ordered_list = insert_inorder(ordered_list,"pearl jam","yellow ledbetter");
-  // ordered_list = insert_inorder(ordered_list,"pearl jam","even flow");
-  // ordered_list = insert_inorder(ordered_list,"pearl jam","alive");
-  // ordered_list = insert_inorder(ordered_list,"ac/dc","thunderstruck");
+  //ordered_list = insert_inorder(ordered_list,"pearl jam","yellow ledbetter");
+  //ordered_list = insert_inorder(ordered_list,"pearl jam","even flow");
+  //ordered_list = insert_inorder(ordered_list,"pearl jam","alive");
+  //ordered_list = insert_inorder(ordered_list,"ac/dc","thunderstruck");
   print_songs(ordered_list);
+
+  printf("\n%s\n", "-------------------------Testing random song--------------------------");
+  struct song_node *random1 = malloc(sizeof(struct song_node));
+  random1 = randomSong(list_head);
+  printf("%s   :   %s", random1->artist, random1->name);
+  struct song_node *random2 = malloc(sizeof(struct song_node));
+  random2 = randomSong(list_head);
+  printf("%s   :   %s", random2->artist, random2->name);
 
   printf("\n%s\n", "-------------------------Testing remove node--------------------------");
   removeNode(list_head, "pearl jam", "even flow");
