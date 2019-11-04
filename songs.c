@@ -29,7 +29,7 @@ void print_song(struct song_node *n) {
 
 //insert nodes in order - alphabetical by Artist then by Song
 struct song_node * insert_inorder(struct song_node *s, char *a, char *n){
-  struct song_node* newSong = (struct song_node *)malloc(sizeof(n));
+  struct song_node* newSong = malloc(sizeof(struct song_node));
   strcpy(newSong->name,n);
   strcpy(newSong->artist,a);
   struct song_node *previous = s;
@@ -38,7 +38,9 @@ struct song_node * insert_inorder(struct song_node *s, char *a, char *n){
     newSong->next = s;
     return newSong;
   }
-  s = s->next;
+  if (s->next != NULL) {
+    s = s->next;
+  }
   while ((s->next) != NULL && strcmp(s->artist, a) > 0){
     previous = s;
     s = s->next;
@@ -51,11 +53,13 @@ struct song_node * insert_inorder(struct song_node *s, char *a, char *n){
     s->next = newSong;
     newSong->next = NULL;
     free(previous);
+    previous = NULL;
   }
   else{
     previous->next = newSong;
     newSong->next = s;
     free(previous);
+    previous = NULL;
   }
   return first;
 }
