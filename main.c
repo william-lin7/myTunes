@@ -36,15 +36,16 @@ int main(){
   ordered_list = insert_inorder(ordered_list,"ac/dc","thunderstruck");
   print_songs(ordered_list);
 
-  printf("\n%s\n", "-------------------------Testing print node-------------------------");
-  print_song(list_head);
-
-  printf("\n\n%s\n", "-------------------------Testing find song-------------------------");
+  printf("\n%s\n", "-------------------------Testing find song-------------------------");
   struct song_node * found = malloc(sizeof(struct song_node));
   printf("%s\n", "looking for [pearl jam: alive]");
   find_song(list_head, "pearl jam","alive");
   printf("\n%s\n", "looking for [bts: make it right]");
   find_song(list_head, "bts", "make it right");
+
+  printf("\n%s\n", "-------------------------Testing print node-------------------------");
+  printf("finding song by ac/dc\n");
+  print_song(list_head);
 
   printf("\n%s\n", "-------------------------Testing random song--------------------------");
   struct song_node *random1 = malloc(sizeof(struct song_node));
@@ -102,7 +103,7 @@ int main(){
   shuffle(ordered_list);
 
   printf("\n\n%s\n", "------------------------Testing delete song-------------------------");
-  delete_song("pearl jam", "yellow ledbetter");
+  delete_song("pearl jam", "even flow");
   print_library();
 
   printf("\n%s\n", "------------------------Testing clear library-------------------------");
