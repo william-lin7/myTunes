@@ -18,7 +18,7 @@ struct song_node * insert_front(struct song_node * s, char *a, char *n){
 //print the entire list
 void print_songs(struct song_node *n) {
   while (n != NULL) {
-    printf(" %s : %s \n", n->artist, n->name);
+    printf(" %s : %s | ", n->artist, n->name);
     n = n->next;
   }
   printf("\n");

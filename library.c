@@ -41,13 +41,8 @@ void print_letter(char *l) {
 
 // Print out all the songs of a certain artist
 void print_artist(char *a) {
-  char * letters = "abcdefghijklmnopqrstuvwxyz";
-  int i = 0;
-  for (i = 0; i<26;i++) {
-    if (strcmp(&letters[i],&a[0])) {
-      find_artist(&library[i], a);
-    }
-  }
+  int index = *(a+0) - 97;
+  find_artist(library[index], a);
 }
 
 //Print out the entire library.
