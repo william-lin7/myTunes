@@ -20,11 +20,16 @@ struct song_node * search(char *a, char *n) {
 }
 
 // Search for an artist.
-struct song_node * search_artist(char *a) {
+void search_artist(char *a) {
   struct song_node * found = malloc(sizeof(struct song_node));
   int index = *(a+0) - 97;
   found = find_artist(library[index],a);
-  return found;
+  if (found == NULL){
+  }
+  else{
+    print_artist(a);
+  }
+  free(found);
 }
 
 // Print out all the entries under a certain letter.
@@ -41,8 +46,16 @@ void print_letter(char *l) {
 
 // Print out all the songs of a certain artist
 void print_artist(char *a) {
-  int index = *(a+0) - 97;
-  find_artist(library[index], a);
+  //char * letters = "abcdefghijklmnopqrstuvwxyz";
+  for (int i = 0; i < 26; i++) {
+    struct song_node * dummy = library[i];
+      while (dummy){
+        if (dummy->artist == a){
+          print_song(dummy);
+        }
+        dummy = dummy->next;
+      }
+  }
 }
 
 //Print out the entire library.
