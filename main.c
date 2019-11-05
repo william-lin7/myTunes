@@ -95,6 +95,9 @@ int main(){
   print_letter("a");
   print_letter("b");
 
+  printf("\n%s\n", "------------------------Printing entire library-------------------------");
+  print_library();
+
   printf("\n%s\n", "------------------------Testing shuffle-------------------------");
   shuffle(ordered_list);
 
