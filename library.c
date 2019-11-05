@@ -46,7 +46,6 @@ void print_letter(char *l) {
 
 // Print out all the songs of a certain artist
 void print_artist(char *a) {
-  //char * letters = "abcdefghijklmnopqrstuvwxyz";
   for (int i = 0; i < 26; i++) {
     struct song_node * dummy = library[i];
       while (dummy){
