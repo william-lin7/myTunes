@@ -95,6 +95,9 @@ int main(){
   print_letter("a");
   print_letter("b");
 
+  printf("\n%s\n", "------------------------Testing shuffle-------------------------");
+  shuffle(ordered_list);
+
   printf("\n%s\n", "------------------------Testing delete song-------------------------");
   delete_song("pearl jam", "yellow ledbetter");
   print_library();
@@ -102,8 +105,6 @@ int main(){
   printf("\n%s\n", "------------------------Testing clear library-------------------------");
   clear();
   print_library();
-
-  printf("\n%s\n", "------------------------Testing shuffle-------------------------");
-  shuffle(ordered_list);
   return 0;
+
 }
