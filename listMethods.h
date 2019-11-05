@@ -2,7 +2,7 @@ struct song_node{
   char artist[100];
   char name[100];
   struct song_node *next;
-}library[26];
+}* library [26];
 
 struct song_node * insert_front(struct song_node *s, char *a, char *n);
 struct song_node * insert_inorder(struct song_node *s, char *a, char *n);

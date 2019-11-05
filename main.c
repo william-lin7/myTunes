@@ -51,7 +51,7 @@ int main(){
   print_song(list_head);
 
   printf("\n%s\n", "-------------------------Testing find song-------------------------");
-  struct song_node * found;
+  struct song_node * found = malloc(sizeof(struct song_node));
   printf("%s\n", "looking for [pearl jam: alive]");
   find_song(list_head, "pearl jam","alive");
   printf("%s\n", "looking for [bts: make it right]");
@@ -69,23 +69,27 @@ int main(){
   printf("\n%s\n", "=========================MUSIC LIBRARY TESTS========================");
 
   printf("\n%s\n", "------------------------Testing add song-------------------------");
-  // add_song(library, "radiohead", "street spirit");
-  // add_song(library, "radiohead","street spirit");
-  // add_song(library, "pink floyd","time");
-  // add_song(library, "radiohead","paranoid android");
-  // add_song(library, "pearl jam","yellow ledbetter");
-  // add_song(library, "pearl jam","even flow");
-  // add_song(library, "pearl jam","alive");
-  // add_song(library, "ac/dc","thunderstruck");
-  add_song( "radiohead", "street spirit");
-  // add_song( "radiohead","street spirit");
-  // add_song( "pink floyd","time");
-  // add_song( "radiohead","paranoid android");
-  // add_song( "pearl jam","yellow ledbetter");
-  // add_song( "pearl jam","even flow");
-  // add_song( "pearl jam","alive");
-  // add_song( "ac/dc","thunderstruck");
-  // print_library();
+  add_song( "radiohead","street spirit");
+  add_song( "pink floyd","time");
+  add_song( "radiohead","paranoid android");
+  add_song( "pearl jam","yellow ledbetter");
+  add_song( "pearl jam","even flow");
+  add_song( "pearl jam","alive");
+  add_song( "ac/dc","thunderstruck");
+  print_library();
 
+  printf("\n%s\n", "------------------------Testing search song-------------------------");
+  printf("%s\n", "looking for [pearl jam: alive]");
+  found = search("pearl jam", "yellow ledbetter");
+  printf("%s\n", "looking for [bts: make it right]");
+  found = search("bts", "make it right");
+
+  printf("\n%s\n", "------------------------Testing print letter-------------------------");
+  printf("Trying to print p list\n");
+  print_letter("p");
+  printf("Trying to print a list\n");
+  print_letter("a");
+  printf("Trying to print b list\n");
+  print_letter("b");
   return 0;
 }
