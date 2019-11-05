@@ -85,6 +85,10 @@ int main(){
   printf("%s\n", "looking for [bts: make it right]");
   found = search("bts", "make it right");
 
+  printf("\n%s\n", "------------------------Testing search artist-------------------------");
+  printf("searching for [pearl jam]\n");
+  search_artist("pearl jam");
+
   printf("\n%s\n", "------------------------Testing print letter-------------------------");
   print_letter("p");
   print_letter("a");
