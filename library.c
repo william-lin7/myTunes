@@ -58,7 +58,7 @@ void print_letter(struct song_node *s, char *l) {
 }
 
 // Print out all the songs of a certain artist
-void print_artist(struct song_node *s, char *a) {
+void print_artist(char *a) {
   char * letters = "abcdefghijklmnopqrstuvwxyz";
   int i = 0;
   for (i = 0; i<26;i++) {
@@ -82,7 +82,26 @@ void print_library() {
 
 //Shuffle - print out a series of randomly chosen songs.
 void shuffle(struct song_node *s) {
-
+  struct song_node *countingNode = malloc(sizeof(struct song_node));
+  countingNode = s;
+  int size = 0;
+  while (countingNode != NULL){
+    size++;
+    countingNode = countingNode->next;
+  }
+  int i = 10;
+  while (i > 0){
+    struct song_node *dummy = s;
+    int randNum = rand() % size;
+    while (randNum > 0){
+      dummy = dummy->next;
+      randNum--;
+    }
+    print_song(dummy);
+    i--;
+  }
+  free(countingNode);
+  countingNode = NULL;
 }
 
 // Delete a song
