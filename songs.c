@@ -107,6 +107,7 @@ struct song_node *randomSong(struct song_node *s){
 
 // removes a specific song
 void removeNode(struct song_node *s, char *a, char *n){
+  printf("%s\n", "removing [%a : %n]");
   struct song_node *previous = malloc(sizeof(struct song_node));
   previous = s;
   if (s == NULL) return;
