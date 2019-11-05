@@ -39,7 +39,7 @@ int main(){
   printf("\n%s\n", "-------------------------Testing print node-------------------------");
   print_song(list_head);
 
-  printf("\n%s\n", "-------------------------Testing find song-------------------------");
+  printf("\n\n%s\n", "-------------------------Testing find song-------------------------");
   struct song_node * found = malloc(sizeof(struct song_node));
   printf("%s\n", "looking for [pearl jam: alive]");
   find_song(list_head, "pearl jam","alive");
@@ -82,7 +82,7 @@ int main(){
 
   printf("\n%s\n", "------------------------Testing search song-------------------------");
   printf("%s\n", "looking for [pearl jam: alive]");
-  found = search("pearl jam", "yellow ledbetter");
+  found = search("pearl jam", "alive");
   printf("\n%s\n", "looking for [bts: make it right]");
   found = search("bts", "make it right");
 
@@ -101,7 +101,7 @@ int main(){
   printf("\n%s\n", "------------------------Testing shuffle-------------------------");
   shuffle(ordered_list);
 
-  printf("\n%s\n", "------------------------Testing delete song-------------------------");
+  printf("\n\n%s\n", "------------------------Testing delete song-------------------------");
   delete_song("pearl jam", "yellow ledbetter");
   print_library();
 
