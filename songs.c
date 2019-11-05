@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 #include "listMethods.h"
 
 
@@ -94,9 +95,7 @@ struct song_node *randomSong(struct song_node *s){
     size++;
     countingNode = countingNode->next;
   }
-  int randNum = rand() % size;
-  printf("%d\n", size);
-  printf("%d\n", randNum);
+  int randNum = time(NULL) % size;
   while (randNum > 0){
     s = s->next;
     randNum--;
