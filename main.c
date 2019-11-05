@@ -51,8 +51,11 @@ int main(){
   printf("%s   :   %s\n", random1->artist, random1->name);
 
   printf("\n%s\n", "-------------------------Testing remove node--------------------------");
-  removeNode(list_head, "pearl jam", "even flow");
+  print_songs(list_head);
+  printf("removing [pearl jam: alive]\n");
+  printf("removing [pearl jam: even flow]\n");
   removeNode(list_head, "pearl jam", "alive");
+  removeNode(list_head, "pearl jam", "even flow");
   print_songs(list_head);
 
   printf("\n%s\n", "-------------------------Testing find artist-------------------------");
@@ -94,5 +97,8 @@ int main(){
   printf("\n%s\n", "------------------------Testing clear library-------------------------");
   clear();
   print_library();
+
+  printf("\n%s\n", "------------------------Testing shuffle-------------------------");
+  shuffle(ordered_list);
   return 0;
 }
