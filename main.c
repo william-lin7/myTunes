@@ -13,6 +13,7 @@ int main(){
   list_head = NULL;
   // print_songs(list_head);
 
+  printf("\n%s\n", "=========================LINKED LIST TESTS========================");
   printf("\n%s\n", "-------------------------Adding artists and songs-------------------------");
   list_head = insert_front(list_head,"radiohead","street spirit");
   list_head = insert_front(list_head,"pink floyd","time");
@@ -48,7 +49,7 @@ int main(){
   printf("\n%s\n", "-------------------------Testing random song--------------------------");
   struct song_node *random1 = malloc(sizeof(struct song_node));
   random1 = randomSong(list_head);
-  printf("%s   :   %s\n", random1->artist, random1->name);
+  printf("%s : %s\n", random1->artist, random1->name);
 
   printf("\n%s\n", "-------------------------Testing remove node--------------------------");
   print_songs(list_head);
