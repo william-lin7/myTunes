@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 
 #include "listMethods.h"
 #include "libraryMethods.h"
@@ -25,6 +26,7 @@ int main(){
   printf("\n%s\n", "------------------------Testing insert in order-------------------------");
   struct song_node * ordered_list;
   ordered_list = NULL;
+  ordered_list = insert_front(ordered_list,"ac/dc","thunderstruck");
   ordered_list = insert_inorder(ordered_list,"radiohead","street spirit");
   ordered_list = insert_inorder(ordered_list,"pink floyd","time");
   //ordered_list = insert_inorder(ordered_list,"radiohead","paranoid android");
@@ -33,6 +35,16 @@ int main(){
   //ordered_list = insert_inorder(ordered_list,"pearl jam","alive");
   //ordered_list = insert_inorder(ordered_list,"ac/dc","thunderstruck");
   print_songs(ordered_list);
+
+  printf("\n%s\n", "-------------------------Testing print node-------------------------");
+  print_song(list_head);
+
+  printf("\n%s\n", "-------------------------Testing find song-------------------------");
+  struct song_node * found;
+  printf("%s\n", "looking for [pearl jam: alive]");
+  find_song(list_head, "pearl jam","alive");
+  printf("%s\n", "looking for [bts: make it right]");
+  find_song(list_head, "bts", "make it right");
 
   printf("\n%s\n", "-------------------------Testing random song--------------------------");
   struct song_node *random1 = malloc(sizeof(struct song_node));
@@ -46,16 +58,6 @@ int main(){
   removeNode(list_head, "pearl jam", "even flow");
   removeNode(list_head, "pearl jam", "alive");
   print_songs(list_head);
-
-  printf("\n%s\n", "-------------------------Testing print node-------------------------");
-  print_song(list_head);
-
-  printf("\n%s\n", "-------------------------Testing find song-------------------------");
-  struct song_node * found;
-  printf("%s\n", "looking for [pearl jam: alive]");
-  find_song(list_head, "pearl jam","alive");
-  printf("%s\n", "looking for [bts: make it right]");
-  find_song(list_head, "bts", "make it right");
 
   printf("\n%s\n", "-------------------------Testing find artist-------------------------");
   printf("%s\n", "looking for [pearl jam]");

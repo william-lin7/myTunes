@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "listMethods.h"
-#include <time.h>
+
 
 
 //insert nodes at the front
@@ -31,39 +31,27 @@ void print_song(struct song_node *n) {
 
 //insert nodes in order - alphabetical by Artist then by Song
 struct song_node * insert_inorder(struct song_node *s, char *a, char *n){
-  struct song_node* newSong = malloc(sizeof(struct song_node));
-  strcpy(newSong->name,n);
-  strcpy(newSong->artist,a);
-  struct song_node *previous = s;
-  struct song_node *first = s;
-  if ((s == NULL) || (strcmp(s->name, n) <= 0 && strcmp(s->artist, a) <= 0)){
-    newSong->next = s;
-    return newSong;
+  if (s == NULL){
+    return insert_front(s, a, n);
   }
-  if (s->next != NULL) {
-    s = s->next;
+  else{struct song_node *previous = NULL;
+    struct song_node *current = s;
+    while (current && strcmp(current->artist, a) < 0){
+      previous = current;
+      current = current->next;
+    }
+    while (current && strcmp(current->name, n) < 0 && strcmp(current->artist, a) == 0){
+      previous = current;
+      current = current->next;
+    }
+    if (previous == NULL){
+      return insert_front(current, a, n);
+    }
+    else{
+      previous->next = insert_front(current, a, n);
+    }
   }
-  while ((s->next) != NULL && strcmp(s->artist, a) > 0){
-    previous = s;
-    s = s->next;
-  }
-  while ((s->next) != NULL && strcmp(s->name, n) > 0 && strcmp(s->artist, a) == 0){
-    previous = s;
-    s = s->next;
-  }
-  if (s->next == NULL){
-    s->next = newSong;
-    newSong->next = NULL;
-    free(previous);
-    previous = NULL;
-  }
-  else{
-    previous->next = newSong;
-    newSong->next = s;
-    free(previous);
-    previous = NULL;
-  }
-  return first;
+  return s;
 }
 
 //find and return a pointer to a node based on artist and song name
@@ -99,7 +87,6 @@ struct song_node * find_artist(struct song_node *s, char *a) {
 
 // returns a random song
 struct song_node *randomSong(struct song_node *s){
-  srand(time(NULL));
   struct song_node *countingNode = malloc(sizeof(struct song_node));
   countingNode = s;
   int size = 0;
