@@ -18,7 +18,7 @@ struct song_node * insert_front(struct song_node * s, char *a, char *n){
 //print the entire list
 void print_songs(struct song_node *n) {
   while (n != NULL) {
-    printf(" %s : %s | ", n->artist, n->name);
+    printf(" %s : %s |", n->artist, n->name);
     n = n->next;
   }
   printf("\n");
@@ -26,7 +26,7 @@ void print_songs(struct song_node *n) {
 
 //print singular node
 void print_song(struct song_node *n) {
-  printf("%s : %s\n", n->artist, n->name);
+  printf("%s : %s |", n->artist, n->name);
   n = n->next;
 }
 
@@ -108,19 +108,14 @@ struct song_node *randomSong(struct song_node *s){
 // removes a specific song
 void removeNode(struct song_node *s, char *a, char *n){
   printf("%s\n", "removing [%a : %n]");
-  struct song_node *previous = malloc(sizeof(struct song_node));
-  previous = s;
+  struct song_node *previous = s;
   if (s == NULL) return;
   if ((strcmp(s->artist, a) == 0) && (strcmp(s->name, n) == 0)){
-    free(previous);
-    previous = NULL;
     free(s);
     s = NULL;
   }
   else{
     if (s->next == NULL){
-      free(previous);
-      previous = NULL;
     }
     else{
       s = s->next;
@@ -130,8 +125,6 @@ void removeNode(struct song_node *s, char *a, char *n){
       }
       previous->next = s->next;
       s->next = NULL;
-      free(previous);
-      previous = NULL;
     }
   }
 }
