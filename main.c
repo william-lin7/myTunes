@@ -78,14 +78,14 @@ int main(){
   // add_song(library, "pearl jam","alive");
   // add_song(library, "ac/dc","thunderstruck");
   add_song( "radiohead", "street spirit");
-  add_song( "radiohead","street spirit");
-  add_song( "pink floyd","time");
-  add_song( "radiohead","paranoid android");
-  add_song( "pearl jam","yellow ledbetter");
-  add_song( "pearl jam","even flow");
-  add_song( "pearl jam","alive");
-  add_song( "ac/dc","thunderstruck");
-  print_library();
+  // add_song( "radiohead","street spirit");
+  // add_song( "pink floyd","time");
+  // add_song( "radiohead","paranoid android");
+  // add_song( "pearl jam","yellow ledbetter");
+  // add_song( "pearl jam","even flow");
+  // add_song( "pearl jam","alive");
+  // add_song( "ac/dc","thunderstruck");
+  // print_library();
 
   return 0;
 }
