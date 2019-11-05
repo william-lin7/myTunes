@@ -107,19 +107,14 @@ struct song_node *randomSong(struct song_node *s){
 
 // removes a specific song
 void removeNode(struct song_node *s, char *a, char *n){
-  struct song_node *previous = malloc(sizeof(struct song_node));
-  previous = s;
+  struct song_node *previous = s;
   if (s == NULL) return;
   if ((strcmp(s->artist, a) == 0) && (strcmp(s->name, n) == 0)){
-    free(previous);
-    previous = NULL;
     free(s);
     s = NULL;
   }
   else{
     if (s->next == NULL){
-      free(previous);
-      previous = NULL;
     }
     else{
       s = s->next;
@@ -129,8 +124,6 @@ void removeNode(struct song_node *s, char *a, char *n){
       }
       previous->next = s->next;
       s->next = NULL;
-      free(previous);
-      previous = NULL;
     }
   }
 }
