@@ -112,7 +112,9 @@ void removeNode(struct song_node *s, char *a, char *n){
   if (s == NULL) return;
   if ((strcmp(s->artist, a) == 0) && (strcmp(s->name, n) == 0)){
     free(previous);
+    previous = NULL;
     free(s);
+    s = NULL;
   }
   else{
     if (s->next == NULL){
@@ -133,17 +135,15 @@ void removeNode(struct song_node *s, char *a, char *n){
   }
 }
 
-struct song_node * free_songs(struct song_node *s){
-  struct song_node * previous_node = malloc(sizeof(struct song_node));
-  // print_list(s);
-
-  while (s!=NULL) {
-    previous_node = s;
-    s = previous_node->next;
+struct song_node * free_songs(struct song_node * s){
+  struct song_node* previous_node = s;
+  while(s){
+    s = s->next;
     printf("freeing node: %s | %s\n", previous_node->artist, previous_node->name);
-    free(previous_node);
-    previous_node = NULL;
+    free(s);
+    previous_node = s;
   }
-  s = NULL;
+  free(previous_node);
+  previous_node = NULL;
   return s;
 }

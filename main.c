@@ -83,11 +83,16 @@ int main(){
   found = search("bts", "make it right");
 
   printf("\n%s\n", "------------------------Testing print letter-------------------------");
-  printf("Trying to print p list\n");
   print_letter("p");
-  printf("Trying to print a list\n");
   print_letter("a");
-  printf("Trying to print b list\n");
   print_letter("b");
+
+  printf("\n%s\n", "------------------------Testing delete song-------------------------");
+  delete_song("pearl jam", "yellow ledbetter");
+  print_library();
+
+  printf("\n%s\n", "------------------------Testing clear library-------------------------");
+  clear();
+  print_library();
   return 0;
 }

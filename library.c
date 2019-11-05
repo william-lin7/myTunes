@@ -35,7 +35,7 @@ void print_letter(char *l) {
     print_songs(library[index]);
   }
   else {
-    printf("No songs with %s letter\n", l);
+    printf("%s: no songs with %s letter\n", l, l);
   }
 }
 
@@ -47,6 +47,7 @@ void print_artist(struct song_node *s, char *a) {
 
 //Print out the entire library.
 void print_library() {
+  printf("Printing Library ....\n");
   char * letters = "abcdefghijklmnopqrstuvwxyz";
   int index;
   for (index = 0; index<26;index++) {
@@ -62,20 +63,16 @@ void shuffle(struct song_node *s) {
 }
 
 // Delete a song
-void delete_song(struct song_node *s, char *a, char *n) {
-  char * letters = "abcdefghijklmnopqrstuvwxyz";
-  int i = 0;
-  for (i = 0; i<26;i++) {
-    if (strcmp(&letters[i],&a[0])) {
-      removeNode(s,a,n);
-    }
-  }
+void delete_song(char *a, char *n) {
+  int index = *(a+0)-97;
+  printf("Deleting %s by %s: \n", n, a);
+  removeNode(library[index],a,n);
 }
 
  // Clear the library.
- void clear(struct song_node *s) {
+ void clear() {
    int i = 0;
    for (i = 0; i<26;i++) {
-     free_songs(library[i]);
+     library[i] = free_songs(library[i]);
    }
  }
