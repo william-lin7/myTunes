@@ -52,6 +52,7 @@ void print_library() {
   int index;
   for (index = 0; index<26;index++) {
     if (library[index] != NULL) {
+      printf("%c list\n", *(letters+index));
       print_songs(library[index]);
     }
   }
