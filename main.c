@@ -43,7 +43,7 @@ int main(){
   struct song_node * found = malloc(sizeof(struct song_node));
   printf("%s\n", "looking for [pearl jam: alive]");
   find_song(list_head, "pearl jam","alive");
-  printf("%s\n", "looking for [bts: make it right]");
+  printf("\n%s\n", "looking for [bts: make it right]");
   find_song(list_head, "bts", "make it right");
 
   printf("\n%s\n", "-------------------------Testing random song--------------------------");
@@ -83,7 +83,7 @@ int main(){
   printf("\n%s\n", "------------------------Testing search song-------------------------");
   printf("%s\n", "looking for [pearl jam: alive]");
   found = search("pearl jam", "yellow ledbetter");
-  printf("%s\n", "looking for [bts: make it right]");
+  printf("\n%s\n", "looking for [bts: make it right]");
   found = search("bts", "make it right");
 
   printf("\n%s\n", "------------------------Testing search artist-------------------------");
